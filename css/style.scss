@@ -4,13 +4,20 @@ $highlight-color: #C05C7E;
 $transition-color: #F3826F;
 
 body, html {
-    background: $background-color;
-    color: $font-color;
-    font-family: 'Major Mono Display', monospace;
     justify-content: center;
     align-items: center;
     display: flex;
+}
+
+html {
+    background: $background-color;
     animation: bgshift 60s ease infinite;
+}
+
+body {
+    background: transparent;
+    color: $font-color;
+    font-family: 'Major Mono Display', monospace;
 }
 
 @keyframes bgshift {
@@ -48,7 +55,9 @@ a {
     -webkit-background-clip: text;
     color: transparent;
     font-weight: bold;
-    font-size: 8vw;
+    font-size: 6vw;
+    align-items: center;
+    justify-content: center;
 }
 
 .content {
