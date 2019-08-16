@@ -1,0 +1,75 @@
+$background-color: #2D3561;
+$font-color: #EAE7AF;
+$highlight-color: #C05C7E;
+$transition-color: #F3826F;
+
+body, html {
+    background: $background-color;
+    color: $font-color;
+    font-family: 'Major Mono Display', monospace;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    animation: bgshift 15s ease infinite;
+}
+
+@keyframes bgshift {
+    0% {
+        background: $background-color;
+    }
+    33% {
+        background: $transition-color;
+    }
+    66% {
+        background: $highlight-color;
+    }
+}
+
+a {
+    color: $font-color;
+    text-decoration: none;
+
+    &:hover {
+        color: darken($font-color, 10%);
+    }
+
+    &:blue {
+        color: $highlight-color;
+        &:hover {
+            color: darken($highlight-color, 10%);
+        }
+    }
+}
+
+.name {
+    background: url(https://media0.giphy.com/media/3CSDXE3UCIiWPdqwql/giphy.gif);
+    background-size: contain;
+    background-position: top left;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    font-size: 8vw;
+}
+
+.content {
+    font-family: 'Overpass Mono', monospace;
+    font-weight:bold;
+    font-size: 2vw;
+
+    ul {
+        padding-left: 15px;
+    }
+}
+
+.rcontent{
+    font-family: 'Overpass Mono', monospace;
+    font-weight:bold;
+    font-size: 2vw;
+    text-align:right;
+    ul {
+        padding-right: 15px;
+    }
+    li {
+        direction: rtl;    
+    }
+}
