@@ -2,6 +2,7 @@ $background-color: #2D3561;
 $font-color: #EAE7AF;
 $highlight-color: #C05C7E;
 $transition-color: #F3826F;
+$title-color: #ffb961;
 
 body, html {
     justify-content: center;
@@ -17,7 +18,7 @@ html {
 body {
     background: transparent;
     color: $font-color;
-    font-family: 'Major Mono Display', monospace;
+    font-family: 'Overpass Mono', monospace;
 }
 
 @keyframes bgshift {
@@ -48,8 +49,15 @@ a {
     }
 }
 
+.subline {
+    text-align: center;
+    font-size: 1.5em;
+    padding-bottom: 1.5em;
+}
+
 .name {
-    background: url(https://media0.giphy.com/media/3CSDXE3UCIiWPdqwql/giphy.gif);
+    background: $title-color;
+    font-family: 'Major Mono Display', monospace;
     background-size: contain;
     background-position: top left;
     -webkit-background-clip: text;
@@ -61,7 +69,6 @@ a {
 }
 
 .content {
-    font-family: 'Overpass Mono', monospace;
     font-weight:bold;
     font-size: 2vw;
 
@@ -71,7 +78,6 @@ a {
 }
 
 .rcontent{
-    font-family: 'Overpass Mono', monospace;
     font-weight:bold;
     font-size: 2vw;
     text-align:right;
