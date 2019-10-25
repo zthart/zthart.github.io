@@ -1,29 +1,158 @@
+<!doctype html>
 <html>
 	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<script src="https://use.fontawesome.com/c745680a1c.js"></script>	
 		<title>Zachary Hart - CSCI.712</title>
 	</head>
 	<body>
-		<h1>CSCI.712 Assignments</h1>
-		<br/><br/>
-		<h3> Assignment One</h3>
-		<p> Base submission - slerp()'d interpolation of quaternions, lerp()'d translational interpolation </p>
-		<video width=960 height=540 controls>
-			<source src="keyframing.mp4" type="video/mp4">
-		</video>
-		<hr/>
-		<h3> Assignment Two</h3>
-		<p> Base submission - no rotational motion simulated, Euler integration </p>
-		<video width=960 height=540 controls>
-			<source src="dynamics.mp4" type="video/mp4">
-		</video>
-		<p> High coefficient of friction (0.8, up from 0.2 in the base example) </p>
-		<video width=960 height=540 controls>
-			<source src="dynamics_high_friction.mp4" type="video/mp4">
-		</video>
-		<p> High coefficient of restitution (0.99, up from 0.5 in the base example) </p>
-		<video width=960 height=540 controls>
-			<source src="dynamics_high_restitution.mp4" type="video/mp4">
-		</video>
-		<hr>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-8 offset-md-2">
+					<h1 class="display-2" style="margin-top: 1em">CSCI.<strong>712</strong> Assignments</h1>
+				</div>
+			</div>
+			<br/>
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2">
+					<div class="accordion" id="assignmentsList">
+						<div class="card">
+							<div class="card-header" id="assignmentZero">
+								<div class="row">
+									<div class="col-3">
+										<h4 class="mb-0">
+											<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseZero">
+												Assignment Zero 
+											</button>
+										</h4>
+									</div>
+									<div class="col-3 offset-6">
+										<p class="text-right"><span class="badge badge-secondary">Last Updated: 09/17/2019</span></p>
+									</div>
+								</div>
+							</div>
+							
+							<div id="collapseZero" class="card card-body collapse" data-parent="#assignmentsList">
+								<div class="col-12">
+									<p class="lead">
+									Basic engine set up for following assignments
+									</p>
+
+									<video width=960 height=540 controls>
+										<source src="framework.mp4" type="video/mp4">
+									</video>
+								</div>
+							</div>
+						<div class="card">
+							<div class="card-header" id="assignmentOne">
+								<div class="row">
+									<div class="col-3">
+										<h4 class="mb-0">
+											<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne">
+												Assignment One
+											</button>
+										</h4>
+									</div>
+									<div class="col-3 offset-6">
+										<p class="text-right"><span class="badge badge-secondary">Last Updated: 10/01/2019</span></p>
+									</div>
+								</div>
+							</div>
+
+							<div id="collapseOne" class="card card-body collapse" data-parent="#assignmentsList">
+								<div class="col-12">
+									<p class="lead"> 
+									Base Submission
+									</p>
+									<ul>
+										<li>Translational motion interpolated via <strong><code>lerp()</code></strong></li>
+										<li>Rotational motion interpolated via <strong><code>slerp()</code></strong> of quaternions</li>
+									</ul>
+									<video width=960 height=540 controls>
+										<source src="keyframing.mp4" type="video/mp4">
+									</video>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header" id="assignmentTwo">
+								<div class="row">
+									<div class="col-3">
+										<h4 class="mb-0">
+											<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo">
+												Assignment Two
+											</button>
+										</h4>
+									</div>
+									<div class="col-3 offset-6">
+										<p class="text-right"><span class="badge badge-success">Last Updated: <strong>10/25/2019</strong></span></p>
+									</div>
+								</div>
+							</div>
+							
+							<div id="collapseTwo" class="card card-body collapse show" data-parent="#assignmentsList">
+								<div class="col-12">
+									<p class="lead"> 
+									Base Submission 
+									</p>
+									<ul>
+										<li> No rotational motion simulated </li>
+										<li> Euler integration </li>
+										<li> Coefficient of Friction: <strong><code>0.2</code></strong></li>
+										<li> Coefficient of Restitution: <strong><code>0.5</code></strong></li>
+									</ul>
+									<video width=960 height=540 controls>
+										<source src="dynamics.mp4" type="video/mp4">
+									</video>
+									<hr/>
+									<p class="lead"> 
+									High Coefficient of Friction
+									</p>
+									<ul>
+										<li> Coefficient of Friction: <strong><s><code style="color: red">0.2</code></s></strong> <strong><i class="fa fa-chevron-up text-success"></i> <code>0.8</code></strong></li>
+										<li> Coefficient of Restitution: <strong><code>0.5</code></strong></li>
+									</ul>
+									<video width=960 height=540 controls>
+										<source src="dynamics_high_friction.mp4" type="video/mp4">
+									</video>
+									<hr />
+									<p class="lead"> 
+									High Coefficient of Restitution
+									</p>
+									<ul>
+										<li> Coefficient of Friction: <strong><code>0.2</code></strong></li>
+										<li> Coefficient of Restitution: <strong><s><code style="color: red">0.5</code></s></strong> <strong><i class="fa fa-chevron-up text-success"></i> <code>0.99</code></strong></li>
+									</ul>
+									<video width=960 height=540 controls>
+										<source src="dynamics_high_restitution.mp4" type="video/mp4">
+									</video>
+									<hr />
+									<p class="lead"> 
+									<strong>Bonus:</strong> Quick &amp; Dirty Pocket Implementation
+									</p>
+									<p>
+									Ball-pocket collision is detected in the same way as ball-ball collision. In this
+									implementation, pockets are actually spherical models that are scaled to
+									<code>1.5<var>x</var></code> the dimensions of the balls in the simulation. If a 
+									collision between any of the object balls, or the cue ball is detected, a force 
+									with a z component of lua's <strong><code>math.huge</code></strong> is applied on 
+									the ball, sending it very far away from the table.
+									</p>
+									<video width=960 height=540 controls>
+										<source src="dynamics_pockets.mp4" type="video/mp4">
+									</video>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	</body>
 </html>
