@@ -88,7 +88,7 @@
 										</h4>
 									</div>
 									<div class="col-3 offset-6">
-										<p class="text-right"><span class="badge badge-success">Last Updated: <strong>10/25/2019</strong></span></p>
+										<p class="text-right"><span class="badge badge-success">Last Updated: <strong>10/26/2019</strong></span></p>
 									</div>
 								</div>
 							</div>
@@ -143,6 +143,20 @@
 									</p>
 									<video width=960 height=540 controls>
 										<source src="dynamics_pockets.mp4" type="video/mp4">
+									</video>
+									<hr />
+									<p class="lead">
+									<strong>Update</strong>: Physically accurate collisions of <code><var>n</var> &gt; 1</code> balls - 10/26/2019
+									</p>
+									<p>
+									In this version, I'm building an array of all other balls colliding with the ball 
+									that I am currently considering, and then performing a single "back up" of that 
+									ball that will resolve all collisions. Each ball that is being collided with will 
+									be updated in the same cycle of the outermost update loop, replicating more 
+									physically accurate behavior.
+									</p>
+									<video width=960 height=540 controls>
+										<source src="dynamics_collision_fixed.mp4" type="video/mp4">
 									</video>
 								</div>
 							</div>
