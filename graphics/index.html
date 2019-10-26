@@ -6,18 +6,21 @@
 
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<script src="https://use.fontawesome.com/c745680a1c.js"></script>	
+		<link rel="stylesheet" href="highlight/styles/default.css">
+		<script src="highlight/highlight.pack.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
 		<title>Zachary Hart - CSCI.712</title>
 	</head>
 	<body>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-lg-8 offset-md-2">
+				<div class="col-lg-6 offset-md-3">
 					<h1 class="display-2" style="margin-top: 1em">CSCI.<strong>712</strong> Assignments</h1>
 				</div>
 			</div>
 			<br/>
 			<div class="row">
-				<div class="col-lg-8 offset-lg-2">
+				<div class="col-lg-6 offset-lg-3">
 					<div class="accordion" id="assignmentsList">
 						<div class="card">
 							<div class="card-header" id="assignmentZero">
@@ -41,7 +44,7 @@
 									Basic engine set up for following assignments
 									</p>
 
-									<video width=960 height=540 controls>
+									<video class="rounded mx-auto d-block img-fluid" width=100% height=auto controls>
 										<source src="framework.mp4" type="video/mp4">
 									</video>
 								</div>
@@ -71,7 +74,7 @@
 										<li>Translational motion interpolated via <strong><code>lerp()</code></strong></li>
 										<li>Rotational motion interpolated via <strong><code>slerp()</code></strong> of quaternions</li>
 									</ul>
-									<video width=960 height=540 controls>
+									<video class="rounded mx-auto d-block img-fluid" width=100% height=auto controls>
 										<source src="keyframing.mp4" type="video/mp4">
 									</video>
 								</div>
@@ -104,10 +107,11 @@
 										<li> Coefficient of Friction: <strong><code>0.2</code></strong></li>
 										<li> Coefficient of Restitution: <strong><code>0.5</code></strong></li>
 									</ul>
-									<video width=960 height=540 controls>
+									<video class="rounded mx-auto d-block img-fluid" width=100% height=auto controls>
 										<source src="dynamics.mp4" type="video/mp4">
 									</video>
 									<hr/>
+
 									<p class="lead"> 
 									High Coefficient of Friction
 									</p>
@@ -115,10 +119,11 @@
 										<li> Coefficient of Friction: <strong><s><code style="color: red">0.2</code></s></strong> <strong><i class="fa fa-chevron-up text-success"></i> <code>0.8</code></strong></li>
 										<li> Coefficient of Restitution: <strong><code>0.5</code></strong></li>
 									</ul>
-									<video width=960 height=540 controls>
+									<video class="rounded mx-auto d-block img-fluid" width=100% height=auto controls>
 										<source src="dynamics_high_friction.mp4" type="video/mp4">
 									</video>
 									<hr />
+
 									<p class="lead"> 
 									High Coefficient of Restitution
 									</p>
@@ -126,38 +131,85 @@
 										<li> Coefficient of Friction: <strong><code>0.2</code></strong></li>
 										<li> Coefficient of Restitution: <strong><s><code style="color: red">0.5</code></s></strong> <strong><i class="fa fa-chevron-up text-success"></i> <code>0.99</code></strong></li>
 									</ul>
-									<video width=960 height=540 controls>
+									<video class="rounded mx-auto d-block img-fluid" width=100% height=auto controls>
 										<source src="dynamics_high_restitution.mp4" type="video/mp4">
 									</video>
 									<hr />
+
 									<p class="lead"> 
 									<strong>Bonus:</strong> Quick &amp; Dirty Pocket Implementation
 									</p>
 									<p>
-									Ball-pocket collision is detected in the same way as ball-ball collision. In this
-									implementation, pockets are actually spherical models that are scaled to
-									<code>1.5<var>x</var></code> the dimensions of the balls in the simulation. If a 
-									collision between any of the object balls, or the cue ball is detected, a force 
-									with a z component of lua's <strong><code>math.huge</code></strong> is applied on 
-									the ball, sending it very far away from the table.
+										Ball-pocket collision is detected in the same way as ball-ball collision. In this
+										implementation, pockets are actually spherical models that are scaled to
+										<code>1.5<var>x</var></code> the dimensions of the balls in the simulation. If a 
+										collision between any of the object balls, or the cue ball is detected, a force 
+										with a z component of lua's <strong><code>math.huge</code></strong> is applied on 
+										the ball, sending it very far away from the table.
 									</p>
-									<video width=960 height=540 controls>
+									<video class="rounded mx-auto d-block img-fluid" width=100% height=auto controls>
 										<source src="dynamics_pockets.mp4" type="video/mp4">
 									</video>
 									<hr />
+
 									<p class="lead">
-									<strong>Update</strong>: Physically accurate collisions of <code><var>n</var> &gt; 1</code> balls - 10/26/2019
+									<strong>Update</strong>: Physically accurate collisions of 
+									<code><strong><var>n</var> &gt; 1</strong></code> balls - 10/26/2019
 									</p>
+										<p>
+										This version of the animation has several important changes that allow for more 
+										accurate collisions of an action ball against more than 1 target balls. Previous
+										to now, the collision detection routine worked in the following way:
+								
+										<pre class="pre-scrollable"><code class="lua">-- Outer loop context, <var>i</var> is the ball currently considered the "action" ball
+for j=1, #Balls do
+    -- Can't collide with ourselves
+    if i ~= j then
+        -- Get position of Balls[j]
+        -- Determine if balls were intersecting
+        if interesecting then
+           -- Calculate how far back to move <strong>then apply</strong> that translation
+           -- Calculate the action line of the collision, calculate the impulse from collision
+           -- Apply the forces to both Balls[i] and Balls[j]
+        end
+    end
+end</code></pre>
+										This had an unfortunate side effect, and it's bolded above. In the case where one
+										ball was colliding with more than one other ball, the ball that was numerically
+										first in the <code><strong>Balls</strong></code> array would be the ball that determined
+										where to place the action ball to resolve the intersection, thus potentially
+										<em>undoing</em> other collisions, or even <em>modifying</em> the action 
+										line of those collisions in the worst case.
+
+										This resulted in the behavior above where the <span style="color: blue">blue</span>
+										target ball has a larger impulse force acted upon it than the
+										<span style="color: red">red</span> target ball, despite being positioned such that
+										the <span class="text-success">green</span> action ball would impact both at the same
+										time and rate.
+									</p>
+
 									<p>
-									In this version, I'm building an array of all other balls colliding with the ball 
-									that I am currently considering, and then performing a single "back up" of that 
-									ball that will resolve all collisions. Each ball that is being collided with will 
-									be updated in the same cycle of the outermost update loop, replicating more 
-									physically accurate behavior.
+										Logic and experience playing pool (and enough time in Linear Algebra lectures)
+										dictates that the magnitude of the impulse forces acted upon the two target balls
+										would be the same, and would sum to the magnitude of the momentum that the target
+										ball had just prior to impact (all this assuming that our collisions are perfectly
+										elastic, and that the energy lost to friction in that instant was negligible).
 									</p>
-									<video width=960 height=540 controls>
+									<p class="lead">
+										When we consider collision detection and collision resolution to be
+										two <strong>distinct</strong> stages of our algorithm, we see the following:
+									</p>
+									<video class="rounded mx-auto d-block img-fluid" width=100% height=auto controls>
 										<source src="dynamics_collision_fixed.mp4" type="video/mp4">
 									</video>
+									<p>
+										<small>Note that we pocketed both the <span style="color: red">red</span> and
+										<span style="color: blue">blue</span> balls on our first shot, and missed
+										on the second - the amount the <span style="color: green">green</span> ball
+										was able to penetrate the target balls on each shot was different, resulting
+										in a different line of action for each.</small>
+									</p>
+									<hr />
 								</div>
 							</div>
 						</div>
