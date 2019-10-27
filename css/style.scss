@@ -4,6 +4,8 @@ $highlight-color: #C05C7E;
 $transition-color: #F3826F;
 $title-color: #ffb961;
 
+@import "../node_modules/bootstrap/scss/bootstrap";
+
 body, html {
     justify-content: center;
     align-items: center;
@@ -17,8 +19,16 @@ html {
 
 body {
     background: transparent;
+    font-family: monospace;
+}
+
+p {
     color: $font-color;
+}
+
+p.lead {
     font-family: 'Overpass Mono', monospace;
+    font-size: 1.5rem;
 }
 
 @keyframes bgshift {
@@ -31,6 +41,21 @@ body {
     66% {
         background: $highlight-color;
     }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $title-color;
+    font-family: 'Major Mono Display', monospace;
+
+    a {
+        color: $title-color
+    }
+
+    font-weight: bolder;
+}
+
+h1.display-1 {
+    font-size: 8rem;
 }
 
 a {
@@ -46,45 +71,5 @@ a {
         &:hover {
             color: darken($highlight-color, 10%);
         }
-    }
-}
-
-.subline {
-    text-align: center;
-    font-size: 1.5em;
-    padding-bottom: 1.5em;
-}
-
-.name {
-    background: $title-color;
-    font-family: 'Major Mono Display', monospace;
-    background-size: contain;
-    background-position: top left;
-    -webkit-background-clip: text;
-    color: transparent;
-    font-weight: bold;
-    font-size: 6vw;
-    align-items: center;
-    justify-content: center;
-}
-
-.content {
-    font-weight:bold;
-    font-size: 2vw;
-
-    ul {
-        padding-left: 15px;
-    }
-}
-
-.rcontent{
-    font-weight:bold;
-    font-size: 2vw;
-    text-align:right;
-    ul {
-        padding-right: 15px;
-    }
-    li {
-        direction: rtl;    
     }
 }
