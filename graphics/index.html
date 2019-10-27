@@ -18,13 +18,13 @@
 	<body>
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-lg-8 offset-lg-2">
+				<div class="col-lg-8 offset-lg-2 col-sm-10 offset-sm-1 col-xs-10 offset-xs-1">
 					<h1 class="display-2" style="margin-top: 1rem">CSCI.<strong>712</strong> Assignments</h1>
 				</div>
 			</div>
 			<br/>
 			<div class="row">
-				<div class="col-lg-8 offset-lg-2">
+				<div class="col-lg-8 offset-lg-2 col-sm-10 offset-sm-1 col-xs-10 offset-xs-1">
 					<div class="accordion" id="assignmentsList">
 						<!--							
     ___              _                                  __     _____                 
@@ -136,7 +136,7 @@
 										<li> Coefficient of Friction: <strong><code>0.2</code></strong></li>
 										<li> Coefficient of Restitution: <strong><code>0.5</code></strong></li>
 									</ul>
-									<video class="rounded mx-auto d-block img-fluid" width=100% height=auto controls>
+									<video class="rounded mx-auto d-block img-fluid" width=75% height=auto controls>
 										<source src="dynamics.mp4" type="video/mp4">
 									</video>
 									<hr/>
@@ -248,7 +248,7 @@ end</code></pre>
 										be acted upon this step to apply each target ball's share of the overall transfer
 										of momentum. The following snippet is roughly how detection is happening in this
 										two-step process.
-										<pre class="pre-scrollable"><code class="lua">-- Outer loop context, <var>i</var> is the ball currently considered the "action" ball
+										<pre class="pre"><code class="lua">-- Outer loop context, <var>i</var> is the ball currently considered the "action" ball
 -- Determine which balls we're colliding with on this particular framestep, and where we need to move
 -- such that we are not colliding with any
 
@@ -273,7 +273,7 @@ for j=1, #Balls do
         if intersecting then
             colliding_with[#colliding_with+1] = Balls[j]  -- Store this target ball
             if collision_resolve ~= nil then
-				-- If we've previously resolved a collision, get our "new" distance
+                -- If we've previously resolved a collision, get our "new" distance
                 -- (we haven't yet moved our action ball)
             end
 
