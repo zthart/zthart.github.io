@@ -9,6 +9,10 @@
 		<link rel="stylesheet" href="highlight/styles/atelier-estuary-dark.css">
 		<script src="highlight/highlight.pack.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
+
+		<link rel="shortcut icon" href="../favicon.png">
+
+		<link rel="stylesheet" href="../css/style.min.css">
 		<title>Zachary Hart - CSCI.712</title>
 	</head>
 	<body>
@@ -199,6 +203,7 @@ for j=1, #Balls do
         end
     end
 end</code></pre>
+									<p>
 										This had an unfortunate side effect, and it's bolded above. In the case where one
 										ball was colliding with more than one other ball, the ball that was numerically
 										first in the <code><strong>Balls</strong></code> array would be the ball that determined
@@ -206,9 +211,9 @@ end</code></pre>
 										<em>undoing</em> other collisions, or even <em>modifying</em> the action 
 										line of those collisions in the worst case.
 
-										This resulted in the behavior above where the <span style="color: blue">blue</span>
+										This resulted in the behavior above where the <span style="color: #3498DB">blue</span>
 										target ball has a larger impulse force acted upon it than the
-										<span style="color: red">red</span> target ball, despite being positioned such that
+										<span style="color: #E74C3C">red</span> target ball, despite being positioned such that
 										the <span class="text-success">green</span> action ball would impact both at the same
 										time and rate.
 									</p>
@@ -228,8 +233,8 @@ end</code></pre>
 										<source src="dynamics_collision_fixed.mp4" type="video/mp4">
 									</video>
 									<p>
-										<small class="text-muted">Note that we pocketed both the <span style="color: red">red</span> and
-										<span style="color: blue">blue</span> balls on our first shot, and missed
+										<small class="text-muted">Note that we pocketed both the <span style="color: #E74C3C">red</span> and
+										<span style="color: #3498DB">blue</span> balls on our first shot, and missed
 										on the second - the amount the <span style="color: green">green</span> ball
 										was moved back to resolve the collision on each shot was slightly different due to 
 										floating point error when calculating the amount of intersection, resulting in an 
@@ -291,7 +296,7 @@ end</code></pre>
 					</div>
 				</div>
 			</div>
-			<div class="row align-items-end">
+			<div class="row align-items-end footer">
 				<div class="col-lg-3 offset-lg-2 col-sm-4">
 					<p><small class="text-muted">All work &copy; Zachary Hart 2019</small></p>
 				</div>

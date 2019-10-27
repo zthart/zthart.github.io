@@ -19,16 +19,53 @@ html {
 
 body {
     background: transparent;
-    font-family: monospace;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: $title-color;
 }
 
-p {
-    color: $font-color;
+.mainpage {
+
+    p {
+        color: $font-color;
+        font-family: monospace;
+    }
+    
+    p.lead {
+        font-family: 'Overpass Mono', monospace;
+        font-size: 1.5rem;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Major Mono Display', monospace;
+    
+        a {
+            color: $title-color
+        }
+    
+        font-weight: bolder;
+    }
+    
+    h1.display-1 {
+        font-size: 8rem;
+    }
 }
 
-p.lead {
-    font-family: 'Overpass Mono', monospace;
-    font-size: 1.5rem;
+.card {
+    background-color: #242424;
+    p, ul {
+        color: #dddddd;
+    }
+
+    button.btn.btn-link {
+        color: $title-color
+    }
+}
+
+.footer {
+    small.text-muted {
+        color: $title-color !important
+    }
 }
 
 @keyframes bgshift {
@@ -41,21 +78,6 @@ p.lead {
     66% {
         background: $highlight-color;
     }
-}
-
-h1, h2, h3, h4, h5, h6 {
-    color: $title-color;
-    font-family: 'Major Mono Display', monospace;
-
-    a {
-        color: $title-color
-    }
-
-    font-weight: bolder;
-}
-
-h1.display-1 {
-    font-size: 8rem;
 }
 
 a {
@@ -73,3 +95,4 @@ a {
         }
     }
 }
+
