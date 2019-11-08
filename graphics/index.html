@@ -125,7 +125,7 @@
 								</div>
 							</div>
 							
-							<div id="collapseTwo" class="card card-body collapse show" data-parent="#assignmentsList">
+							<div id="collapseTwo" class="card card-body collapse" data-parent="#assignmentsList">
 								<div class="col-12">
 									<p class="lead"> 
 									Base Submission 
@@ -288,6 +288,69 @@ for j=1, #Balls do
         end
     end
 end</code></pre>
+									</p>
+									<hr />
+								</div>
+							</div>
+						</div>
+						<!--
+    ___              _                                  __     ________                 
+   /   |  __________(_)___ _____  ____ ___  ___  ____  / /_   /_  __/ /_  ________  ___ 
+  / /| | / ___/ ___/ / __ `/ __ \/ __ `__ \/ _ \/ __ \/ __/    / / / __ \/ ___/ _ \/ _ \
+ / ___ |(__  |__  ) / /_/ / / / / / / / / /  __/ / / / /_     / / / / / / /  /  __/  __/
+/_/  |_/____/____/_/\__, /_/ /_/_/ /_/ /_/\___/_/ /_/\__/    /_/ /_/ /_/_/   \___/\___/ 
+                   /____/                                                               
+						-->
+						<div class="card">
+							<div class="card-header" id="assignmentThree">
+								<div class="row">
+									<div class="col-3">
+										<h4 class="mb-0">
+											<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree">
+												Assignment Three
+											</button>
+										</h4>
+									</div>
+									<div class="col-3 offset-6">
+										<p class="text-right"><span class="badge badge-primary">Last Updated: <strong>11/07/2019</strong></span></p>
+									</div>
+								</div>
+							</div>
+
+							<div id="collapseThree" class="card card-body collapse show" data-parent="#assignmentsList">
+								<div class="col-12">
+									<p class="lead">Not-Entirely Functional Submission - 11/07/2019</p>
+
+									<video class="rounded mx-auto d-block img-fluid" width=75% height=auto controls>
+										<source src="articulation_root_movement.mp4" type="video/mp4">
+									</video>
+									<br />
+									<p>
+										I've been struggling some with this assignment, mostly with frames of reference and
+										getting my rotational motion to apply with respect to parent joints. I will be continuing 
+										to work on this assignment as I have time over the coming weeks, and I believe that I will
+										be able to pull everything together eventually.
+									</p>
+									<p>
+										This submission includes parsing of a BVH figure -- <code>Ambient.bvh</code> in this example -- and the 
+										translational motion of that figure. Other figures work as well (see <code>Sneak.bvh</code>). 
+									</p>
+
+									<video class="rounded mx-auto d-block img-fluid" width=75% height=auto controls>
+										<source src="articulation_sneak_not_working.mp4" type="video/mp4">
+									</video>
+									<br />
+									<p>
+										The two examples above are with my non-functional rotation applicatoins commented out. This is <code>Ambient.bvh</code>
+									with my current rotation logic:
+									</p>
+
+									<video class="rounded mx-auto d-block img-fluid" width=75% height=auto controls>
+										<source src="articulation_not_working.mp4" type="video/mp4">
+									</video>
+									<br />
+									<p>
+										Clearly something is wrong here...
 									</p>
 									<hr />
 								</div>
