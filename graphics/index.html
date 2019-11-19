@@ -312,12 +312,12 @@ end</code></pre>
 										</h4>
 									</div>
 									<div class="col-3 offset-6">
-										<p class="text-right"><span class="badge badge-primary">Last Updated: <strong>11/07/2019</strong></span></p>
+										<p class="text-right"><span class="badge badge-secondary">Last Updated: <strong>11/07/2019</strong></span></p>
 									</div>
 								</div>
 							</div>
 
-							<div id="collapseThree" class="card card-body collapse show" data-parent="#assignmentsList">
+							<div id="collapseThree" class="card card-body collapse" data-parent="#assignmentsList">
 								<div class="col-12">
 									<p class="lead">Not-Entirely Functional Submission - 11/07/2019</p>
 
@@ -353,6 +353,101 @@ end</code></pre>
 										Clearly something is wrong here...
 									</p>
 									<hr />
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header" id="assignmentFour">
+								<div class="row">
+									<div class="col-3">
+										<h4 class="mb-0">
+											<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseFour">
+												Assignment Four: Particles
+											</button>
+										</h4>
+									</div>
+									<div class="col-3 offset-6">
+										<p class="text-right"><span class="badge badge-primary">Last Updated: <strong>11/18/2019</strong></span></p>
+									</div>
+								</div>
+							</div>
+
+							<div id="collapseFour" class="card card-body collapse show" data-parent="#assignmentsList">
+								<div class="col-12">
+									<p class="lead">Base Submission</p>
+
+									<ul>
+										<li>Particle Lifetime: <strong><code>1.25&plusmn;.25</code></strong>seconds</li>
+										<li>Particle Shape: Icosahedrons, identical in size</li>
+										<li>No external forces outside of emission velocity, no air resistance/friction</li>
+										<li>Default particle limit: <code><strong>1200</strong></code> particles</li>
+										<li>Default particle generation/frame: <code><strong>15</strong></code></li>
+									</ul>
+
+									<video class="rounded mx-auto d-block img-fluid" width=75% height=auto controls>
+										<source src="video/particles_base.mp4" type="video/mp4">
+									</video>
+									<hr />
+									<p class="lead">Additional Forces</p>
+
+									<p>
+										This submission adds a gravitational force. The scale of the simulation is that the emitter is 50 meters across,
+										while each particle is 10 meters across, assuming a <strong><code>9.8m/s<sup>2</sup></code></strong> gravitational 
+										acceleration.
+									</p> 
+
+									<video class="rounded mx-auto d-block img-fluid" width=75% height=auto controls>
+										<source src="video/particles_gravity.mp4" type="video/mp4">
+									</video>
+									<hr />
+
+									<p class="lead">Color &amp; Transparency Gradient</p>
+
+									<p>
+										Here, the colors desaturate as a function of the remaining lifetime of the particles. This is not a true gradient,
+										but splits the lifetime of each particle into three zones. When a particle is new, has 2/3rds of its life remaining, 
+										and has 1/3rd of its life remaining.
+									</p>
+
+									<video class="rounded mx-auto d-block img-fluid" width=75% height=auto controls>
+										<source src="video/particles_gradient.mp4" type="video/mp4">
+									</video>
+									<hr />
+
+									<p class="lead">Different Color Gradients &amp; Particle Models</p>
+
+									<p>
+										At this point, I was playing around with what I could do. I've now added Cubic and Tetrahedral models that can be 
+										selected from as the animation runs. Each different model has a different color gradient.
+									</p>
+
+									<video class="rounded mx-auto d-block img-fluid" width=75% height=auto controls>
+										<source src="video/particles_shape_color_control.mp4" type="video/mp4">
+									</video>
+									<hr />
+
+									<p class="lead">Bonus &amp; Mistakes</p>
+
+									<p> Here's a bonus where I upped some parameters, after adding controls for them. We start to run into performance issues at this point</p>
+
+									<ul>
+										<li>Particle Lifetime: <strong><s><code style="color: red">1.25&plusmn;.25</code></s></strong> <strong><i class="fa fa-chevron-up text-success"></i> <code>2.75&plusmn;.25</code></strong> seconds</li>
+										<li>Default particle limit: <strong><s><code style="color: red">1200</code></s></strong> <strong><i class="fa fa-chevron-up text-success"></i> <code>4000</code></strong> particles</li>
+										<li>Default particle generation/frame: <strong><s><code style="color: red">15</code></s></strong> <strong><i class="fa fa-chevron-up text-success"></i> <code>100</code></strong></li>
+									</ul>
+
+									<video class="rounded mx-auto d-block img-fluid" width=75% height=auto controls>
+										<source src="video/particles_vomit.mp4" type="video/mp4">
+									</video>
+									<br />
+
+									<p>
+										Here's a quick clip of a bad implementation of particle scaling as a function of remaining lifetime.
+									</p>
+
+									<video class="rounded mx-auto d-block img-fluid" width=75% height=auto controls>
+										<source src="video/particles_bad_scaling_lerp.mp4" type="video/mp4">
+									</video>
 								</div>
 							</div>
 						</div>
