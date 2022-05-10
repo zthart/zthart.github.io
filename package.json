@@ -7,8 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "google-chrome-stable --new-window file://$INIT_CWD/index.html & sass --watch css/_style.scss:css/style.min.css --style compressed"
+    "test": "google-chrome-stable --new-window file://$INIT_CWD/index.html & sass --watch css/_style.scss:css/style.min.css --style compressed"
   },
   "repository": {
     "type": "git",
@@ -21,7 +20,6 @@
   },
   "homepage": "https://github.com/zthart/zthart.github.io#readme",
   "devDependencies": {
-    "bootstrap": "^5.1.3",
     "sass": "^1.51.0"
   }
 }
