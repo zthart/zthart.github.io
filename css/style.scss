@@ -1,55 +1,177 @@
-$background-color: #2D3561;
-$font-color: #EAE7AF;
-$highlight-color: #C05C7E;
-$transition-color: #F3826F;
-$title-color: #ffb961;
+@use "sass:map";
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+/**********************************/
+/************* COLORS *************/
+/**********************************/
+$background-color: #2D3561;
+$highlight-color: #F3826F;
+$title-color: #ffb961;
+$font-color: #EAE7AF;
+
+/**********************************/
+/*********** TYPOGRAPHY ***********/
+/**********************************/
+$weights: ("thin": 200, "book": 400, "semibold": 600);
+$headers: "h1", "h2", "h3";
+$header-weight: ("h1": map.get($weights, "thin"), "h2": map.get($weights, "book"), "h3": map.get($weights, "book"));
+$header-size: ("h1": 72, "h2": 32, "h3": 24);
 
 body, html {
+    // All content is dead center on the page, thanks flexbox!
     justify-content: center;
     align-items: center;
     display: flex;
+    font-family: 'IBM Plex Serif', serif;
 }
 
 html {
     background: $background-color;
-    animation: bgshift 60s ease infinite;
+    animation: bgshift 3s ease-in-out infinite;
 }
 
 body {
     background: transparent;
 }
-h1, h2, h3, h4, h5, h6 {
-    color: $title-color;
-}
 
-.mainpage {
+// Assemble our header styles like this, rather than having a ton of disparate rules
+@each $header in $headers {
+    #{$header} {
+        font-size: map.get($header-size, $header);
+        font-weight: map.get($header-weight, $header);
 
-    p {
-        color: $font-color;
-        font-family: monospace;
-    }
-    
-    p.lead {
-        font-family: 'Overpass Mono', monospace;
-        font-size: 1.5rem;
-    }
+        margin: 0rem 0rem 1rem 0rem;
+        color: $title-color;
 
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Major Mono Display', monospace;
-    
         a {
             color: $title-color
         }
-    
-        font-weight: bolder;
-    }
-    
-    h1.display-1 {
-        font-size: 8rem;
     }
 }
+
+p {
+    color: $font-color;
+    font-size: 18;
+    font-weight: map.get($weights, "semibold");
+    margin: 0;
+
+    small {
+        font-weight: map.get($weights, "book");
+        font-size: 14;
+    }
+
+    a {
+        font-weight: map.get($weights, "thin");
+    }
+
+    &.lead {
+        font-size: 24;
+        margin: 0rem 0rem 1rem 0rem;
+    }
+}
+
+a {
+    color: $font-color;
+    text-decoration: none;
+
+    &:hover {
+        color: $highlight-color
+    }
+
+    &:blue {
+        color: $highlight-color;
+        &:hover {
+            color: darken($highlight-color, 30%);
+        }
+    }
+}
+
+hr {
+    width: 100%;
+    border: 1px solid #888;
+    margin: 16 0 16;
+}
+
+@keyframes bgshift {
+    0% {
+        background: $background-color
+    }
+
+    50% {
+        background: lighten($background-color, 2%);
+    }
+}
+
+.mainpage {
+    margin: 0 16;
+    text-align: center;
+    flex-basis: 45%;
+    flex-grow: 1;
+
+
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    &.split {
+        justify-content: space-between;
+    }
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+
+    &.center {
+        align-items: center;
+    }
+
+    &.left {
+        align-items: flex-start;
+    }
+
+    &.right {
+        align-items: flex-end;
+    }
+}
+
+.tall {
+    margin: 24 0;
+}
+
+.wide {
+    width: 100%
+}
+
+.left {
+    & :not(p) > a::after {
+        text-decoration: underline;
+        position: relative;
+        left: 8;
+        top: -8;
+        font-size: 12;
+        color: $highlight-color;
+        content: '[link]';
+    }
+}
+
+.right {
+
+    & :not(p) > a::before {
+        text-decoration: underline;
+        position: relative;
+        right: 8;
+        top: -8;
+        font-size: 12;
+        color: $highlight-color;
+        content: '[link]';
+    }
+}
+
 
 .card {
     background-color: #242424;
@@ -67,32 +189,3 @@ h1, h2, h3, h4, h5, h6 {
         color: $title-color !important
     }
 }
-
-@keyframes bgshift {
-    0% {
-        background: $background-color;
-    }
-    33% {
-        background: $transition-color;
-    }
-    66% {
-        background: $highlight-color;
-    }
-}
-
-a {
-    color: $font-color;
-    text-decoration: none;
-
-    &:hover {
-        color: darken($font-color, 10%);
-    }
-
-    &:blue {
-        color: $highlight-color;
-        &:hover {
-            color: darken($highlight-color, 10%);
-        }
-    }
-}
-
