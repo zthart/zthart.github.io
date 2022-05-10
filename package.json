@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch-css": "sass --watch css/_style.scss:css/style.min.css --style compressed"
+    "dev": "google-chrome-stable --new-window file://$INIT_CWD/index.html & sass --watch css/_style.scss:css/style.min.css --style compressed"
   },
   "repository": {
     "type": "git",
