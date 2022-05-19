@@ -18,9 +18,9 @@ $header-size: ("h1": 72, "h2": 32, "h3": 24);
 
 body, html {
     // All content is dead center on the page, thanks flexbox!
+    display: flex;
     justify-content: center;
     align-items: center;
-    display: flex;
     font-family: 'IBM Plex Serif', serif;
 }
 
@@ -33,10 +33,45 @@ body {
     background: transparent;
 }
 
+html.droplet, html.spindrift {
+    justify-content: flex-start;
+}
+
+body.droplet, body.spindrift {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 24px;
+    flex-grow: 1;
+    max-width: 66%;
+
+    p {
+        font-weight: map.get($weights, 'book');
+    }
+
+    .droplet-date {
+        color: $highlight-color;
+    }
+
+    .droplet-text {
+        margin-bottom: 8px
+    }
+
+    .droplet-back {
+        margin: 8px 0px;
+        font-size: 18px;
+    }
+}
+
+
+body.spindrift, body.droplet {
+
+}
+
 // Assemble our header styles like this, rather than having a ton of disparate rules
 @each $header in $headers {
     #{$header} {
-        font-size: map.get($header-size, $header);
+        font-size: map.get($header-size, $header) + px;
         font-weight: map.get($header-weight, $header);
 
         margin: 0rem 0rem 1rem 0rem;
@@ -50,13 +85,13 @@ body {
 
 p {
     color: $font-color;
-    font-size: 18;
+    font-size: 18px;
     font-weight: map.get($weights, "semibold");
     margin: 0;
 
     small {
         font-weight: map.get($weights, "book");
-        font-size: 14;
+        font-size: 14px;
     }
 
     a {
@@ -64,7 +99,7 @@ p {
     }
 
     &.lead {
-        font-size: 24;
+        font-size: 24px;
         margin: 0rem 0rem 1rem 0rem;
     }
 }
@@ -106,8 +141,6 @@ hr {
     text-align: center;
     flex-basis: 45%;
     flex-grow: 1;
-
-
 }
 
 .row {

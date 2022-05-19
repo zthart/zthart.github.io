@@ -1,0 +1,20 @@
+---
+meta:
+  author: Zach Hart
+  date: 2022-05-14
+title: Hello World
+content: >
+  I've been trying to learn [Rust](https://www.rust-lang.org/) on and off for the least year or so, although I tend to
+  put these projects down for months at a time. Recenly, I've put a bit more time into
+  [Spindrift](https://github.com/zthart/spindrift), a basic static site generator designed for simple blogs like this
+  one! The basic building block in Spindrift is a _droplet_ - which is a single post written in YAML. These posts can
+  contain basic metadata about the post, such as author and date, and either an image, text content, or both.
+
+  Currently, spindrift supports basic markdown formatting (**bold**, _italics_, and [links](#)), but lacks support for
+  things like ordered/unordered lists, code blocks or preformatted text, or different heading types within posts. These
+  are all on my roadmap to work on, and I may end up just relying on some pre-existing rust libraries for markdown
+  support. At the moment, however, this markdown parsing is implemented in plain regex.
+
+  I have a laundry list of features that it would be nice to work on, but who knows what will get done. For now though,
+  I'm happy to have a working "beta" of sorts. Check out this and my other projects
+  _[on GitHub](https://github.com/zthart)_!
