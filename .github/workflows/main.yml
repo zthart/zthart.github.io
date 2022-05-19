@@ -20,7 +20,7 @@ jobs:
         run: |
           git clone https://github.com/zthart/spindrift.git
           cd spindrift
-          export SPINDRIFT_WORKSPACE=$(pwd)
+          echo "SPINDRIFT_WORKSPACE=$(pwd)" >> $GITHUB_ENV
 
       - uses: actions-rs/toolchain@v1
         with:
@@ -30,23 +30,31 @@ jobs:
         run: |
           cd $SPINDRIFT_WORKSPACE
           cargo build --release
-          cd target/release
-          export SPINDRIFT_BIN_DIR=$(pwd)
+          
+      - name: Upload spindrift binary
+        uses: actions/upload-artifact@v3
+        with:
+          name: spindrift
+          path: $SPINDRIFT_WORKSPACE/target/release/spindrift
+          retention-days: 1
     
   build:
+    needs: build-spindrift
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Download spindrift
+        uses: actions/download-artifact@v3
+        with:
+          name: spindrift
 
       # Runs a set of commands using the runners shell
       - name: Run spindrift
         run: |
           cd $GITHUB_WORKSPACE
-          $SPINDIRFT_BIN_DIR/spindrift -t _spindrift_templates -c _spindrift.yaml -s _posts -o static
+          ./spindrift -t _spindrift_templates -c _spindrift.yaml -s _posts -o static
           
-  commit-droplets:
-    runs-on: ubuntu-latest
-    steps:
       - name: Setup git config
         run: |
           git config user.name "Spindrift Runner"
