@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: spindrift
-          path: $SPINDRIFT_WORKSPACE/target/release/spindrift
+          path: "${{ env.SPINDRIFT_WORKSPACE }}/target/release/spindrift"
           retention-days: 1
     
   build:
