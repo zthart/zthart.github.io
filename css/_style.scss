@@ -165,10 +165,12 @@ hr {
 
     &.left {
         align-items: flex-start;
+        text-align: start;
     }
 
     &.right {
         align-items: flex-end;
+        text-align: end;
     }
 }
 
