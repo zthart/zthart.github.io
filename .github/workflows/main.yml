@@ -80,11 +80,6 @@ jobs:
         run: |
           chmod +x spindrift
           ./spindrift -t _spindrift_templates -c _spindrift.yaml -s _posts -o static
-          
-      - name: Setup git config
-        run: |
-          git config user.name "Spindrift Runner"
-          git config user.email "<>"
 
       - name: commit added files
         run: |

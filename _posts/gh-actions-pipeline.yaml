@@ -1,0 +1,29 @@
+---
+meta:
+  author: Zach Hart
+  date: 2022-05-22
+title: A simple build pipeline using github actions
+content: >
+  [Spindrift](https://github.com/zthart/spindrift)'s main goal is to enable someone to quickly author content by
+  frontloading the boilerplate work, while keeping the actual content-writing as their main focus. Having spindrift
+  available as a commandline tool is useful when first configuring your site, or iterating on your page templates, but 
+  the workflow comes more tedious when you've configured your site and would prefer to focus on writing out a post as
+  your thoughts come to you.
+
+  To remove some of the barriers to making a new post, constructing some simple workflows in
+  [GitHub Actions](https://github.com/features/actions) allows you to automatically run the spindrift executable
+  whenever you push a new post to your static site's repository. For public repositories, GitHub Actions are free to use
+  and relatively simple to configure, even if you don't have much experience with similar build or CI/CD tools. Many 
+  common operations are either supported by first-party actions written by GitHub themselves (like checking out your
+  codebase, uploading artifacts, etc.), and even more functionality is easily unlocked using community-built actions.
+
+  For spindrift, I wrote a [simple deploy workflow](https://github.com/zthart/spindrift/blob/main/.github/workflows/release.yml)
+  that creates a tag and pushes a release and built executable to GitHub for each commit to the main branch. From here
+  this release artifact can be downloaded by another action in a workflow for
+  [this very site](https://github.com/zthart/zthart.github.io/blob/master/.github/workflows/main.yml). If the workflow
+  detects that there are changes to a specific folder (the folder that contains my droplet yaml), it fetches the latest
+  spindrift release's binary, runs the command, and commits the freshly-build html to be rebuilt by github pages and
+  deployed.
+
+  Perhaps in a future post, one where preformatted text is supported by spindrift, I can include some code snippets and
+  a more in-depth breakdown of these workflows, or even spindrift itself!
