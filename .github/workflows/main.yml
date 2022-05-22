@@ -20,6 +20,9 @@ jobs:
     steps:
       - name: Checkout site
         uses: actions/checkout@v3
+        
+      - name: Unshallow repository
+        run: git fetch --prune --unshallow
 
       - name: Check files
         id: diff-files
@@ -58,8 +61,7 @@ jobs:
         # result of this command and set either ${{ true }} or ${{ false }} as the output,
         # allowing the if in the next step to use the output value directly. The outcome is
         # the same though.
-        run: |
-          echo "::set-output name=matched-files::$(git log HEAD^1..HEAD --raw --no-decorate --name-only --pretty=oneline | tail -n +2 | sed -n '/_posts/p' | wc -l)"
+        run: echo "::set-output name=matched-files::$(git log HEAD^1..HEAD --raw --no-decorate --name-only --pretty=oneline | tail -n +2 | sed -n '/_posts/p' | wc -l)"
   build:
     needs: check-changes
     runs-on: ubuntu-latest
