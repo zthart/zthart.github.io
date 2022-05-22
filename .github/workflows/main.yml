@@ -63,7 +63,7 @@ jobs:
   build:
     needs: check-changes
     runs-on: ubuntu-latest
-    if: ${{ needs.check-changes.outputs.matched-files != "0"}}
+    if: ${{ needs.check-changes.outputs.matched-files != '0' }}
     steps:
       - uses: actions/checkout@v3
       
