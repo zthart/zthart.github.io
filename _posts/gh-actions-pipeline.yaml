@@ -21,7 +21,7 @@ content: >
   that creates a tag and pushes a release and built executable to GitHub for each commit to the main branch. From here
   this release artifact can be downloaded by another action in a workflow for
   [this very site](https://github.com/zthart/zthart.github.io/blob/master/.github/workflows/main.yml). If the workflow
-  detects that there are changes to a specific folder (the folder that contains my droplet yaml), it fetches the latest
+  detects that there are changes to a configured folder (the folder that contains my droplet yaml), it fetches the latest
   spindrift binary, runs the command, and commits the freshly-build html to be rebuilt by github pages and deployed.
 
   Perhaps in a future post, one where code blocks are supported by spindrift, I can include some code snippets and

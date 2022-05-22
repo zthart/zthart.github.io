@@ -74,8 +74,10 @@ jobs:
         uses: oprypin/find-latest-tag@v1
         with:
           repository: zthart/spindrift
-          releases-only: true
 
+      - name: Report tag
+        run: |
+          echo "Spindrift at version **\`${{ steps.get-latest-tag.outputs.tag }}\`**" >> $GITHUB_STEP_SUMMARY
       
       - name: Download spindrift
         uses: dsaltares/fetch-gh-release-asset@master
