@@ -67,6 +67,9 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ needs.check-changes.outputs.matched-files != '0' }}
     steps:
+      - name: Start summary
+        run: echo "## Build Spindrift Pages" >> $GITHUB_STEP_SUMMARY
+
       - uses: actions/checkout@v3
 
       - name: Get latest spindrift tag
@@ -90,9 +93,15 @@ jobs:
       - name: Run spindrift
         run: |
           chmod +x spindrift
-          ./spindrift -t _spindrift_templates -c _spindrift.yaml -s _posts -o static
+          echo "### Spindrift build summary" >> $GITHUB_STEP_SUMMARY
+          ./spindrift -t _spindrift_templates -c _spindrift.yaml -s _posts -o static | tail -n 6 >> $GITHUB_STEP_SUMMARY
 
-      - name: commit added files
+      - name: Configure git identity
+        run: |
+          git config user.name "spindrift-builder"
+          git config user.email "<>"
+
+      - name: Commit added files
         run: |
           git add static/*
           git commit -m "Build spindrift pages"

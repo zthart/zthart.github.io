@@ -25,5 +25,5 @@ content: >
   spindrift binary, runs the command, and commits the freshly-build html to be rebuilt by github pages and deployed.
 
   Perhaps in a future post, one where code blocks are supported by spindrift, I can include some code snippets and
-  a more in-depth breakdown of these workflows, or even spindrift itself! As always, you can check out this project and
-  my others _[on my GitHub](https://github.com/zthart)_.
+  a more in-depth breakdown of these workflows, or even spindrift itself! As always, you can check out this project as
+  well as my others _[on my GitHub](https://github.com/zthart)_.
