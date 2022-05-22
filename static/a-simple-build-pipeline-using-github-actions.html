@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="droplet">
+    <head>
+        <meta charset="utf-8">
+        <title>A simple build pipeline using github actions</title>
+        <meta name="description" content="">
+        <meta name="author" content="Zach Hart">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="generator" content="spindrift">
+        <link rel="stylesheet" href="../css/style.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,200;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    </head>
+    <body class="droplet">
+        <h2 class="droplet-heading">A simple build pipeline using github actions</h2>
+        
+        <span class="droplet-date">2022-05-22 - Zach Hart</span>
+        
+        <p class="droplet-text"><a href="https://github.com/zthart/spindrift">Spindrift</a>'s main goal is to enable someone to quickly author content by frontloading the boilerplate work, while keeping the actual content-writing as their main focus. Having spindrift available as a commandline tool is useful when first configuring your site, or iterating on your page templates, but  the workflow comes more tedious when you've configured your site and would prefer to focus on writing out a post as your thoughts come to you.</p>
+<p class="droplet-text">To remove some of the barriers to making a new post, constructing some simple workflows in <a href="https://github.com/features/actions">GitHub Actions</a> allows you to automatically run the spindrift executable whenever you push a new post to your static site's repository. For public repositories, GitHub Actions are free to use and relatively simple to configure, even if you don't have much experience with similar build or CI/CD tools. Many  common operations are either supported by first-party actions written by GitHub themselves (like checking out your codebase, uploading artifacts, etc.), and even more functionality is easily unlocked using community-built actions.</p>
+<p class="droplet-text">For spindrift, I wrote a <a href="https://github.com/zthart/spindrift/blob/main/.github/workflows/release.yml">simple deploy workflow</a> that creates a tag and pushes a release and built executable to GitHub for each commit to the main branch. From here this release artifact can be downloaded by another action in a workflow for <a href="https://github.com/zthart/zthart.github.io/blob/master/.github/workflows/main.yml">this very site</a>. If the workflow detects that there are changes to a configured folder (the folder that contains my droplet yaml), it fetches the latest spindrift binary, runs the command, and commits the freshly-build html to be rebuilt by github pages and deployed.</p>
+<p class="droplet-text">Perhaps in a future post, one where code blocks are supported by spindrift, I can include some code snippets and a more in-depth breakdown of these workflows, or even spindrift itself! As always, you can check out this project as well as my others <em><a href="https://github.com/zthart">on my GitHub</a></em>.</p>
+
+        <p><a class="droplet-back" href="index.html"><em>back</em></em></a></p>
+    </body>
+</html>
