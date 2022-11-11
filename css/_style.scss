@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:color";
 
 /**********************************/
 /************* COLORS *************/
@@ -27,6 +28,14 @@ body, html {
 html {
     background: $background-color;
     animation: bgshift 3s ease-in-out infinite;
+}
+
+code {
+    background: color.scale($background-color, $saturation: -30%);
+    border: 1px solid color.scale($background-color, $saturation: -90%);
+    border-radius: 8px;
+    color: $highlight-color;
+    padding: 0px 4px;
 }
 
 body {

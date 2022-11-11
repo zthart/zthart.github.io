@@ -1,0 +1,29 @@
+---
+meta:
+  author: Zach Hart
+  date: 2022-05-26
+title: "Spindrift: Now HTML-safe(er)"
+content: >
+  A critical security feature of any code that exists online (or exists to generate content for the web) is to avoid
+  interpreting unsanitized user input as code. Code injection like this is some of the lowest hanging fruit for
+  bad actors.
+
+  Spindrift could, in theory, be used as a vector to run malicious or potentially deceptive code on the machines of
+  your blogs viewers. For example, say that an attacker gains root access to a machine on which your ssh private key is
+  held, and copies this key to their personal machine. This key is already present on your github account, and now the
+  attacker has full push access to your github repositories. If you aren't keeping a close eye on your repo, the
+  attacker may be able to push a commit without you noticing for some time. The attacker alters a droplet by including
+  a `<script>` or `<link>` tag that embeds some javascript into the page. If unescaped this javascript will be
+  interpreted and run on any viewers browser.
+
+  The impact of this could be anything from an adversary adding a tracker to your page, or even changing content in such
+  a way that users from your general location using the Geolocation API will see your intended content (so that when you
+  visit your own site you notice nothing amiss), while users from other areas see something offensive or damaging.
+
+  Obviously, if a user has full write access to your github repositories, abusing code injection in spindrift is likely
+  one of the more tame things they could do, but at the very least we can make it a point to prevent this from
+  happening.
+
+  **This all to say**, spindrift now escapes the `>`, `<`, and `&` html entities -- as well as supporting
+  markdown syntax for in-line code! Just wrap your code with one (or more!) `\``. (To wrap single `\`` in inline-code,
+  escape the central single `\`` - like this `\`\\`\``)
