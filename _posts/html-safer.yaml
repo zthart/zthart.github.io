@@ -1,7 +1,7 @@
 ---
 meta:
   author: Zach Hart
-  date: 2022-05-26
+  date: 2022-11-11
 title: "Spindrift: Now HTML-safe(er)"
 content: >
   A critical security feature of any code that exists online (or exists to generate content for the web) is to avoid
