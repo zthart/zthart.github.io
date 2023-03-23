@@ -4,10 +4,10 @@
 /**********************************/
 /************* COLORS *************/
 /**********************************/
-$background-color: #2D3561;
-$highlight-color: #F3826F;
-$title-color: #ffb961;
-$font-color: #EAE7AF;
+$background-color: #31493C;
+$highlight-color: #B3EFB2;
+$title-color: #E8F1F2;
+$font-color: #F2F2F2;
 
 /**********************************/
 /*********** TYPOGRAPHY ***********/
@@ -31,8 +31,8 @@ html {
 }
 
 code {
-    background: color.scale($background-color, $saturation: -30%);
-    border: 1px solid color.scale($background-color, $saturation: -90%);
+    background: color.scale($background-color, $saturation: -45%);
+    border: 1px solid color.scale($background-color, $saturation: -30%);
     border-radius: 8px;
     color: $highlight-color;
     padding: 0px 4px;
@@ -91,7 +91,7 @@ p {
     color: $font-color;
     font-size: 18px;
     font-weight: map.get($weights, "semibold");
-    margin: 0;
+    margin: 0px;
 
     small {
         font-weight: map.get($weights, "book");
@@ -127,7 +127,7 @@ a {
 hr {
     width: 100%;
     border: 1px solid #888;
-    margin: 16 0 16;
+    margin: 16px 0px 16px;
 }
 
 @keyframes bgshift {
@@ -141,7 +141,7 @@ hr {
 }
 
 .mainpage {
-    margin: 0 16;
+    margin: 0px 16px;
     text-align: center;
     flex-basis: 45%;
     flex-grow: 1;
@@ -179,20 +179,42 @@ hr {
 }
 
 .tall {
-    margin: 24 0;
+    margin: 24px 0px;
 }
 
 .wide {
     width: 100%
 }
 
+.comfortable {
+    padding: 0px 8px
+}
+
+#keycontent-copy {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    position: relative;
+    right: -464px;
+    top: 32px;
+}
+
+#key-container {
+    &:hover {
+        #keycontent-copy {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+}
+
 .left {
     & :not(p) > a::after {
         text-decoration: underline;
         position: relative;
-        left: 8;
-        top: -8;
-        font-size: 12;
+        left: 8px;
+        top: -8px;
+        font-size: 12px;
         color: $highlight-color;
         content: '[link]';
     }
@@ -203,9 +225,9 @@ hr {
     & :not(p) > a::before {
         text-decoration: underline;
         position: relative;
-        right: 8;
-        top: -8;
-        font-size: 12;
+        right: 8px;
+        top: -8px;
+        font-size: 12px;
         color: $highlight-color;
         content: '[link]';
     }

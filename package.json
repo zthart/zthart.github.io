@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "google-chrome-stable --new-window file://$INIT_CWD/index.html & sass --watch css/_style.scss:css/style.min.css --style compressed"
+    "test": "open -a Firefox -n --args \"file://$INIT_CWD/index.html\" & sass --watch css/_style.scss:css/style.min.css --style compressed"
   },
   "repository": {
     "type": "git",

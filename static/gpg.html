@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Zach Hart - GPG</title>
+        <meta name="description" content="Software Engineer, Tech Enthusiast, and Human Person">
+        <meta name="author" content="Zach Hart">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.min.css">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,200;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="col center mainpage">
+            <div class="col tall">
+                <h2>Need to make sure I&apos;m me?</h2>
+                <p>Copy my public key, or download it <a href="DE6CE085CF29A5926F2DB1EFD1A7348B79D7CB4E.asc">here</a>.</p>
+            </div>
+            <div class="row center">
+                <a href="../index.html"><em>go back</em></a>
+            </div>
+            <div id="key-container" class="col left">
+                <button id="keycontent-copy">copy</button>
+                <code class="comfortable"><pre id="keycontent"></pre></code>
+            </div>
+            <div class="row tall center">
+                <a href="../index.html"><em>go back</em></a>
+            </div>
+        </div>
+        <script src="../src/loadkey.js" type="text/javascript" charset="utf-8" aync defer></script>
+    </body>
+</html>
