@@ -1,14 +1,16 @@
 
-const KEY_LOC = "https://zthart.me/static/DE6CE085CF29A5926F2DB1EFD1A7348B79D7CB4E.asc"
+const KEY_LOC = "https://zthart.me/static/C2543588BB77A466.asc"
 
 const loadKeyFromFile = async () => {
     const res = await fetch(KEY_LOC, {method: 'GET'});
     return res.text()
 }
 
-const copyKeyToClipboard = async () => {
+const copyKeyToClipboard = async e => {
     const keycontent = document.getElementById('keycontent')
     await navigator.clipboard.writeText(keycontent.innerText)
+    e.target.innerText = 'copied!'
+    setTimeout(() => e.target.innerText = 'copy', 1000)
 }
 
 loadKeyFromFile().then(keyContent => {

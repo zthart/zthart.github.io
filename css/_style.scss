@@ -194,12 +194,20 @@ hr {
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
-    position: relative;
-    right: -464px;
-    top: 32px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    color: $highlight-color;
+    background-color: color.scale($background-color, $saturation: 33%);
+    border: 1px $highlight-color solid;
+    border-radius: 8px;
+    padding: 4px 8px 6px 8px;
+    line-height: 12px;
 }
 
 #key-container {
+    position: relative;
+    
     &:hover {
         #keycontent-copy {
             visibility: visible;
